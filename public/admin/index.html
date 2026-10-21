@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Admin — V-TAK</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/theme.js"></script>
+</head>
+<body>
+<div class="admin">
+  <aside class="sidebar">
+    <a class="logo-link" href="/"><img class="logo-img" src="/assets/images/logo.png" alt="V-TAK Admin" onerror="this.replaceWith(document.createTextNode('V-TAK Admin'))"></a>
+    <button data-view="dashboard">📊 Ringkasan</button>
+    <button data-view="products">🎮 Produk</button>
+    <button data-view="orders">🧾 Transaksi</button>
+    <button data-view="customers">👥 Pelanggan</button>
+    <button data-view="promos">🏷️ Promosi</button>
+    <button data-view="reports">📈 Laporan</button>
+    <button data-view="settings">⚙️ Pengaturan</button>
+    <button data-view="developers">👨‍💻 Developer</button>
+    <button data-theme-btn data-full></button>
+    <button id="logout">🚪 Keluar</button>
+  </aside>
+  <section class="content" id="content"><div class="spinner"></div></section>
+</div>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/admin.js"></script>
+</body>
+</html>

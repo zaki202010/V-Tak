@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontak — V-TAK</title>
+<meta name="description" content="V-TAK — top up game dan produk digital di Indonesia.">
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/theme.js"></script>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="container">
+
+<h1>Hubungi Kami</h1><div class="card" id="contact" style="max-width:640px"><div class="spinner"></div></div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const {site} = await VT.init('help'); const c = document.getElementById('contact');
+  c.innerHTML = `<p>Kendala pesanan? Siapkan <b>nomor pesanan</b> Anda lalu hubungi kami:</p>
+   ${site.contact_wa ? `<p>💬 WhatsApp: <a href="https://wa.me/${VT.esc(site.contact_wa)}" target="_blank" rel="noopener">+${VT.esc(site.contact_wa)}</a></p>` : ''}
+   ${site.contact_email ? `<p>✉️ Email: <a href="mailto:${VT.esc(site.contact_email)}">${VT.esc(site.contact_email)}</a></p>` : ''}
+   ${site.contact_hours ? `<p>🕘 Jam layanan: ${VT.esc(site.contact_hours)}</p>` : ''}`;
+});
+</script>
+</main>
+<div id="site-footer"></div>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>

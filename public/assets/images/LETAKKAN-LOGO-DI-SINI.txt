@@ -1,0 +1,2 @@
+Simpan logo Anda sebagai logo.png di folder ini (tinggi sekitar 80-120 px, latar transparan).
+Jika file tidak ada, situs menampilkan tulisan "V-TAK" sebagai pengganti.

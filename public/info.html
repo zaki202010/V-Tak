@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informasi — V-TAK</title>
+<meta name="description" content="V-TAK — top up game dan produk digital di Indonesia.">
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/theme.js"></script>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="container">
+
+<div class="card" id="info" style="max-width:760px"></div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const pages = {
+    tentang: ['Tentang V-TAK', '<p>V-TAK adalah platform top up game dan produk digital untuk pengguna di Indonesia. Kami menampilkan harga, biaya layanan, dan status transaksi secara jelas.</p>'],
+    bantuan: ['Pusat Bantuan', '<h3>Bagaimana cara top up?</h3><p>Pilih produk, isi data tujuan, pilih nominal dan metode pembayaran, lalu buat pesanan.</p><h3>Status pembayaran dan status top up berbeda?</h3><p>Ya. Pembayaran berhasil belum berarti top up selesai; keduanya dipantau terpisah di Cek Transaksi.</p><h3>Top up gagal / belum masuk?</h3><p>Siapkan nomor pesanan lalu <a href="/contact.html">hubungi layanan pelanggan</a>.</p><h3>Apakah V-TAK meminta kata sandi akun game?</h3><p>Tidak pernah.</p>'],
+    privasi: ['Kebijakan Privasi', '<p>Kami hanya menyimpan data yang dibutuhkan untuk memproses pesanan (mis. email, ID tujuan top up). Kami tidak menyimpan data kartu pembayaran. <i>[Dokumen contoh — sesuaikan dengan kebutuhan hukum Anda.]</i></p>'],
+    syarat: ['Syarat & Ketentuan', '<p>Pelanggan bertanggung jawab atas kebenaran ID tujuan. Pesanan yang sudah berhasil diproses tidak dapat dibatalkan. <i>[Dokumen contoh — sesuaikan dengan kebutuhan hukum Anda.]</i></p>'],
+  };
+  const k = VT.param('p'); const p = pages[k] || pages.tentang;
+  await VT.init(k === 'bantuan' ? 'help' : '');
+  document.getElementById('info').innerHTML = `<h1>${p[0]}</h1>${p[1]}`;
+});
+</script>
+</main>
+<div id="site-footer"></div>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>

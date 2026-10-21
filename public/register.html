@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daftar — V-TAK</title>
+<meta name="description" content="V-TAK — top up game dan produk digital di Indonesia.">
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/theme.js"></script>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="container">
+
+<form class="card" id="register-form" style="max-width:420px;margin:20px auto"><h1 style="font-size:1.6rem">Daftar</h1>
+  <label for="name">Nama</label><input id="name" name="name" required maxlength="80" autocomplete="name">
+  <label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email">
+  <label for="phone">No. HP (opsional)</label><input id="phone" name="phone" inputmode="tel" autocomplete="tel">
+  <label for="password">Kata sandi <small class="muted">(min. 8, huruf & angka)</small></label><input id="password" name="password" type="password" required autocomplete="new-password">
+  <label for="pc">Ulangi kata sandi</label><input id="pc" name="password_confirmation" type="password" required autocomplete="new-password">
+  <button class="btn block mt" type="submit">Buat Akun</button>
+  <p class="muted center">Sudah punya akun? <a href="/login.html">Masuk</a></p></form>
+</main>
+<div id="site-footer"></div>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>

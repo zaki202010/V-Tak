@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cek Transaksi — V-TAK</title>
+<meta name="description" content="V-TAK — top up game dan produk digital di Indonesia.">
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/theme.js"></script>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="container">
+
+<h1>Cek Transaksi</h1>
+<form class="card" id="track-form" style="max-width:520px">
+  <label for="order_no">Nomor pesanan</label><input id="order_no" name="order_no" required maxlength="30" placeholder="VTK2610AB12CD">
+  <label for="token">Token pelacakan <small class="muted">(untuk pembelian tanpa login)</small></label><input id="token" name="token" maxlength="64" autocomplete="off">
+  <p id="login-hint" class="muted"><small>Pesanan saat login dapat dilihat di Riwayat Transaksi.</small></p>
+  <button class="btn" type="submit">Cek Status</button>
+</form>
+<div id="track-result" class="mt" style="max-width:720px"></div>
+</main>
+<div id="site-footer"></div>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/transaction.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil — V-TAK</title>
+<meta name="description" content="V-TAK — top up game dan produk digital di Indonesia.">
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/theme.js"></script>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="container">
+
+<form class="card" id="profile-form" style="max-width:520px"><h1 style="font-size:1.6rem">Profil</h1>
+  <p class="muted" id="p-email"></p>
+  <label for="name">Nama</label><input id="name" name="name" required maxlength="80">
+  <label for="phone">No. HP</label><input id="phone" name="phone" inputmode="tel">
+  <h3 class="mt">Ganti kata sandi (opsional)</h3>
+  <label for="cp">Kata sandi saat ini</label><input id="cp" name="current_password" type="password" autocomplete="current-password">
+  <label for="np">Kata sandi baru</label><input id="np" name="password" type="password" autocomplete="new-password">
+  <label for="npc">Ulangi kata sandi baru</label><input id="npc" name="password_confirmation" type="password" autocomplete="new-password">
+  <button class="btn mt" type="submit">Simpan</button></form>
+</main>
+<div id="site-footer"></div>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>

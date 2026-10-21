@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tim Pembuat — V-TAK</title>
+<link rel="stylesheet" href="/assets/css/app.css">
+<script src="/assets/js/theme.js"></script>
+<style>
+  #team{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+  .dev{text-align:center}
+  .dev-photo{width:140px;height:140px;margin:0 auto 14px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:#fff;background:linear-gradient(135deg,var(--primary),var(--accent));border:4px solid var(--line)}
+  .dev-photo img{width:100%;height:100%;object-fit:cover}
+  .dev-role{color:var(--accent);font-weight:700;margin-bottom:6px}
+  .dev-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+  .skill{padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card2);font-size:.8rem;font-weight:600}
+  .dev-list{margin:12px 0 0;padding-left:20px;text-align:left;font-size:.9rem}.dev-list li{margin:4px 0}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="container">
+  <h1>Tim Pembuat V-TAK</h1>
+  <div id="project" class="card hidden" style="margin-bottom:18px"></div>
+  <div id="team"></div>
+</main>
+<div id="site-footer"></div>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/app.js"></script>
+<script>
+(async function () {
+  await VT.init('');
+  const E = VT.esc, team = VT.$('#team');
+  VT.loading(team);
+  const safe = (u) => (/^(https?:|mailto:)/i.test(u) ? u : '#');
+  try {
+    const d = await VT.api('/developers');
+    if (d.project) { const p = VT.$('#project'); p.classList.remove('hidden'); p.innerHTML = '<h2>Tentang Proyek</h2><p style="white-space:pre-line;margin:0">' + E(d.project) + '</p>'; }
+    if (!d.items.length) { team.style.display = 'block'; return VT.empty(team, 'Profil pembuat belum ditambahkan.'); }
+    team.innerHTML = d.items.map((x) => `
+      <article class="card dev">
+        <div class="dev-photo">${x.photo_url ? `<img src="${E(x.photo_url)}" alt="${E(x.name)}" loading="lazy">` : VT.initial(x.name)}</div>
+        <h2 style="margin-bottom:2px">${E(x.name)}</h2>
+        ${x.role ? `<div class="dev-role">${E(x.role)}</div>` : ''}
+        ${x.links.length ? `<div class="dev-links">${x.links.map((l) => `<a class="btn sm ghost" href="${E(safe(l.url))}" target="_blank" rel="noopener noreferrer">${E(l.label)}</a>`).join('')}</div>` : ''}
+        ${x.bio ? `<p class="muted" style="white-space:pre-line">${E(x.bio)}</p>` : ''}
+        ${x.skills.length ? `<div class="skills">${x.skills.map((s) => `<span class="skill">${E(s)}</span>`).join('')}</div>` : ''}
+        ${x.experience.length ? `<ul class="dev-list">${x.experience.map((e) => `<li>${E(e)}</li>`).join('')}</ul>` : ''}
+      </article>`).join('');
+  } catch (e) { team.style.display = 'block'; VT.errorBox(team, e.message, () => location.reload()); }
+})();
+</script>
+</body>
+</html>
